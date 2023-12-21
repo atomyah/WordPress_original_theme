@@ -1,0 +1,584 @@
+@charset "UTF-8";
+/*
+Theme Name: blog
+*/
+
+/* 共通 */
+
+@charset "UTF-8";
+
+html {
+    font-size: 100%;
+}
+
+body {
+    color: #333;
+    font-size: 1rem;
+    font-family: 'Noto Sans', 'Noto Sans JP', sans-serif;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.readmore {
+    font-size: 0.95em;
+    text-align: center;
+    margin-top: 1em;
+}
+
+/*
+「position: absolute;」を設定し、left、bottomで下線の位置を調整
+widthとheightで線の長さと高さを設定
+疑似要素で線を表示させるためには、「content: '';」を設定すること
+「transition: all 200ms ease;」でホバー時の速度などを設定
+*/
+.readmore a {
+    padding-bottom: 1px;
+    color: #333;
+    position: relative;
+}
+
+.readmore a::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: #333;
+    transition: all 200ms ease;
+}
+
+/*
+ホバー時の下線の設定
+「opacity: 0;」下線を非表示
+「transform: translateY(3px);」下に3px移動
+→下に3px移動しながら下線を非表示にする
+*/
+.readmore a:hover::after {
+    opacity: 0;
+    transform: translateY(3px);
+}
+
+/* 共通ここまで */
+
+
+/*////////////////////////////////////////*/
+
+
+/* ヘッダー部分 */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 10;
+}
+
+/* タイトルやナビは横幅マックス1200pxにするものの黒帯をウインドいっぱいにするための苦肉の設定 */
+.header-title-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-title {
+    font-size: 1.9em;
+    font-weight: 400;
+    font-family: sans-serif;
+    margin: 20px 16px;
+}
+
+.navi {
+    background-color: palevioletred; /* ブラウザ画面横幅一杯に帯. */
+}
+
+.navi-container {
+    max-width: 1200px; /* 本文横幅（#container）と同じ横幅マックス1200px */
+    margin: 0 auto;
+}
+
+.navi ul {
+    /* ナビゲーションを横並びにする設定（こうしないとメニューが縦に並ぶ） */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navi ul li a {
+    color: #fff;
+}
+
+.navi ul li {
+    padding: 10px 50px 10px 15px;
+    /* 横並びにしたナビを間隔あける設定 */
+    font-size: 0.95em;
+}
+
+
+@media screen and (max-width: 767px) { 
+
+/* ////////// ハンバーガーメニュー //////////// */
+/* 参考：https://global-web-design.com/1093 */
+/* 参考：https://www.onamae.com/column/wordpress/52/ ← JavaScriptはfooter.phpに埋め込んだ． */
+
+body{
+    overflow-x: hidden;
+  }
+.header-area{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+  }
+  .hamburger{
+    width: 40px;
+    height: 25px;
+    position: relative;
+    position: fixed;
+    top: 20px;
+    right: 30px;
+  }
+  .hamburger span{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: blue;
+  }
+  .hamburger span:first-of-type{/* ハンバーガーメニューの1番目の線 */
+    top: 0;
+  }
+  .hamburger span:nth-of-type(2){/* ハンバーガーメニューの2番目の線 */
+    top: 50%;
+  }
+  .hamburger span:last-of-type{/* ハンバーガーメニューの3番目の線 */
+    top: 100%;
+  }
+  
+  .nav_list{/* ハンバーガーメニューをクリックした時に表示するメニュー一覧（縦ぞろえ） */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .8);
+    position: fixed;
+    top: 65px;
+    width: 100%;
+    height: 80vh;
+    left: 0;
+    transform: translateX(100%); /* デフォルトでメニューを右側に隠す．
+                                「translateX」でX軸(横方向)の位置を変える
+                                「(100%);」で画面の右側に見えないように移動． */
+  }
+  .nav_list li{
+    color: #fff;
+    line-height: 400%;
+    text-align: center;
+  }
+
+
+  /* ハンバーガーメニューを動かす（hamburger.jsで）ためのCSS */
+.hamburger.active span:first-of-type{/* ハンバーガーメニューの1番目の線 */
+    top: 50%;
+    transform: rotate(45deg);
+  }
+  .hamburger.active span:nth-of-type(2){/* ハンバーガーメニューの2番目の線 */
+    opacity: 0;/* 透明にする */
+  }
+  .hamburger.active span:last-of-type{/* ハンバーガーメニューの3番目の線 */
+    top: 50%;
+    transform: rotate(-45deg);
+  }
+  .nav_list.active{
+    transform: translateX(0); 
+  }
+
+  /* ////////// ハンバーガーメニューここまで //////////// */
+
+}
+
+
+/* ヘッダー部分ここまで */
+
+
+
+/*////////////////////////////////////////*/
+
+
+/*-------------------------------------------
+ここからBody部分 
+single.php, page.php共通
+-------------------------------------------*/
+
+/* main部分 */
+#container {
+    display: grid;
+    grid-template-columns: 65% 30%;
+    gap: 5%;
+    padding: 0 16px;
+    margin: 150px auto 0px auto;
+    max-width: 1200px;
+}
+
+.main section {
+    margin-bottom: 60px;
+}
+
+.main-title {
+    font-size: 1.7em;
+    margin-bottom: 20px;
+}
+
+.main-date {
+    font-size: 0.85em;
+    margin-bottom: 10px;
+}
+
+.main img {
+    margin-bottom: 10px;
+}
+
+
+.main-thumnail img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.attachment-post-thumbnail {
+    width: 100%;
+    object-fit: cover;
+}
+
+.main-text {
+    width: 100%;
+    margin: 0 auto 10px auto;
+}
+
+
+
+/* カテゴリ一覧タイトル */
+.page-title {
+    border-bottom: solid 1px #777;
+    font-size: 1.75rem;
+    padding-bottom: 10px;
+    margin-bottom: 60px;
+}
+
+
+/*-------------------------------------------
+投稿詳細ページsingle.php
+-------------------------------------------*/
+/* 「次の記事へ」と「前の記事へ」のリンク */
+.post-link {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+/*-------------------------------------------
+投稿詳細ページsingle.php ここまで
+-------------------------------------------*/
+
+
+/* ////////// ページネーション //////////// */
+.pagination ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pagination li {
+    padding: 0 10px;
+}
+
+.pagination ul a:hover {
+    opacity: 0.7;
+}
+
+
+/*-------------------------------------------
+サイドバーsidebar.php
+-------------------------------------------*/
+
+/* Author部分 */
+.aside {
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.author img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 30px auto;
+    /* 下の写真を中央寄せするのに必要 */
+    display: block;
+    /* 下の写真を中央寄せするのに必要 */
+}
+
+.author-title {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.author-text {
+    font-size: 0.95em;
+    margin-bottom: 50px;
+}
+
+
+/* Archive部分 */
+.archive {
+    margin-bottom: 200px;
+}
+
+.archive-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.side-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.archive ul {
+    border-bottom: solid 1px #777;
+}
+
+.archive li {
+    border-top: solid 1px #777;
+    padding: 20px;
+    font-size: 0.875em;
+}
+
+@media screen and (max-width: 767px) {
+    #container {
+        display: grid;
+        grid-template-columns: 100%;
+        padding: 0 16px;
+        margin: 100px auto 0 auto;
+        max-width: 1200px;
+    }
+
+    .author {
+        margin-top: 0px;
+    }
+
+    .archive {
+        margin-bottom: 200px;
+    }
+}
+/*-------------------------------------------
+サイドバーsidebar.php ここまで
+-------------------------------------------*/
+
+
+
+/*-------------------------------------------
+お問い合わせフォーム
+-------------------------------------------*/
+input,
+textarea {
+    width: 100%;
+    border: solid 1px #c8c8c8;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.7;
+}
+
+
+/*-------------------------------------------
+検索フォーム
+-------------------------------------------*/
+#searchform {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+#searchform button {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+}
+
+
+
+
+/*-------------------------------------------
+フッター
+-------------------------------------------*/
+.footer {
+    background-color: #f7f7f7;
+}
+
+.footer-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    /* ↓ AboutとMenuを横並びにする設定 */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;  /* aboutとmenuを上揃いにするためflex-startに変更 */
+    gap: 20px;
+}
+
+.about {
+    width: 40%;
+    margin: 0 auto;
+    align-self: flex-start; /* aboutとmenuをflex-startに変更.上揃いのため */
+}
+
+.about-title {
+    margin-bottom: 10px;
+}
+
+.about-text {
+    font-size: 0.95em;
+    margin-bottom: 20px;
+}
+
+.about-list {
+    margin-bottom: 0px;
+}
+
+/* footerのAboutのリストで▶をCSSで作る。 */
+.about-list li {
+    position: relative;
+    padding-left: 12px;
+    color: #333;
+    margin-bottom: 4px;
+    font-size: 0.95em;
+}
+
+.about-list li::before {
+    content: '';
+    /* わざわざ↓なことしなくてもcontent:'▶'でいいじゃない？ */
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 0 6px 8px;
+    border-color: transparent transparent transparent #333;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -6px;
+}
+
+/* footerのAboutのリストで▶をCSSで作る。ここまで */
+
+
+.menu {
+    width: 40%;
+    margin: 0 auto;
+    align-self: flex-start; /* aboutとmenuをflex-startに変更.上揃いのため */
+}
+
+.menu-title {
+    margin-bottom: 10px;
+}
+
+.menu ul {
+    border-bottom: solid 1px #777;
+}
+
+.menu li {
+    border-top: solid 1px #777;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 0.95em;
+}
+
+.copyright {
+    margin-top: 30px; /* コピーライトと上の要素との間隔を調整 */
+    text-align: center; /* 中央寄せを追加 */
+}
+
+
+
+/* メディアクエリ */
+@media screen and (max-width: 767px) {
+
+    .navi {
+        overflow-x: scroll;
+        /* 横スクロールを表示 */
+    }
+
+    /* pickup部分 */
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+    }
+
+    /* main部分 */
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+        margin: 30px auto;
+    }
+
+    .main {
+        margin-bottom: -150px;
+    }
+
+
+    /* footer部分 */
+    .footer {
+        background-color: #f7f7f7;
+        margin: 0 auto;
+    }
+
+    .footer-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0px;
+        padding: 0 16px;
+        margin: 0 auto;
+    }
+
+    .about {
+        width: 100%;
+        margin: 50px auto 0px auto;
+    }
+
+    .menu {
+        width: 100%;
+        grid-row: 2/3;
+        margin: 50px auto -1000px auto;
+    }
+
+
+    /* これないとページネーションとauthorの写真がかぶる */
+    .author {
+        margin-top: 60px;
+    }
+
+    /* 「次の記事へ」と「前の記事へ」のリンク */
+    .post-link {
+        width: 100%;
+        margin-bottom: 100px;
+    }
+}
