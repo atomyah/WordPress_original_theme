@@ -40,13 +40,18 @@ WordPress オリジナルテーマによるプロ写真家のポートフォリ�
 
 ## 画面レイアウト
 
-![Alt text](image.png)
+![Alt text](image-3.png)
+<br /><br /><br />
+
+![Alt text](image-2.png)
+
 <br /><br />
-![Alt text](image-1.png)
 
 ## プロジェクト URL
 
-http://yah2026.work/
+http://cf437555.cloudfree.jp
+
+<br /><br />
 
 ## 環境
 
@@ -113,11 +118,11 @@ Local アプリケーションなどを使い、新規で WordPress を立ち上
 
 ### 本番環境のファイルをインポート
 
-本番環境の All In One Migration からエキスポートしたファイルを、新規で立ち上げた WordPress にインポートする.（エキスポートファイルの入手については本番サイトの[お問い合わせページ](http://yah2026.work/contact/)よりご連絡ください）
+本番環境の All In One Migration からエキスポートしたファイルを、新規で立ち上げた WordPress に All In One Migration でインポートする.（エキスポートファイルの入手については本番サイトの[お問い合わせページ](http://cf437555.cloudfree.jp/contact/)よりご連絡ください）
 
 ## トラブルシューティング
 
-### Warning: Undefined array key 0 in /home/cf437555/cf437555.cloudfree.jp/public_html/wp-content/themes/blog/page.php on line 9
+#### Warning: Undefined array key 0 in /home/cf437555/cf437555.cloudfree.jp/public_html/wp-content/themes/blog/page.php on line 9
 
 固定ページで上記のようなエラーが画面に表示される場合がある.
 <br />
