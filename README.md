@@ -9,7 +9,10 @@
   <img src="https://img.shields.io/badge/-CSS-000000.svg?logo=css.js&style=for-the-badge">
   <img src="https://img.shields.io/badge/-HTML-000000.svg?logo=HTML.js&style=for-the-badge">
   <!-- バックエンドの言語一覧 -->
-  <img src="https://img.shields.io/badge/-WordPress-000000.svg?logo=WordPress&style=for-the-badge">
+  <img src="https://img.shields.io/badge/-WordPress-217198.svg?logo=WordPress&style=for-the-badge">
+  <img src="https://img.shields.io/badge/-PHP-ffffff.svg?logo=PHP&syle=for-the-badge">
+  <img src="https://img.shields.io/badge/-Apache-009900.svg?logo=Apache&style=for-the-badge">
+  <img src="https://img.shields.io/badge/-MariaDB-333399.svg?logo=MariaDB&style=for-the-badge">
   <!-- ミドルウェア一覧 -->
 
 </p>
@@ -57,14 +60,14 @@ http://sara2026.cloudfree.jp
 
 <!-- 言語、フレームワーク、ミドルウェア、インフラの一覧とバージョンを記載 -->
 
-| 言語・フレームワーク | バージョン |
-| -------------------- | ---------- |
-| HTML                 | 5          |
-| CSS                  | 3          |
-| PHP                  | 8.1.22     |
-| WordPress            | 6.4.2      |
-
-その他のパッケージのバージョンは pyproject.toml と package.json を参照してください
+| 言語・サーバー | バージョン |
+| -------------- | ---------- |
+| HTML           | 5          |
+| CSS            | 3          |
+| PHP            | 8.2.9      |
+| WordPress      | 6.4.2      |
+| Apache         | 2.4        |
+| MariaDB        | 10.5       |
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
